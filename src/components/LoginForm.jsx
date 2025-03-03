@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import infinito from "../assets/infinito.png"; // Asegúrate de tener la imagen en esta ruta
 
 function LoginForm({ setIsAuthenticated }) {
   const [user, setUser] = useState("");
@@ -7,7 +8,7 @@ function LoginForm({ setIsAuthenticated }) {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
-    setError(""); // Resetear error
+    setError(""); 
     if (!user || !password) {
       setError("Todos los campos son obligatorios.");
       return;
@@ -25,24 +26,29 @@ function LoginForm({ setIsAuthenticated }) {
   };
 
   return (
-    <div className="login-container">
-      <h2>Iniciar Sesión</h2>
-      <input
-        type="text"
-        placeholder="Usuario"
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p className="error">{error}</p>}
-      <button onClick={handleLogin} disabled={loading}>
-        {loading ? "Cargando..." : "Ingresar"}
-      </button>
+    <div className="login-wrapper">
+      <div className="login-image">
+        <img src="https://laderasur.com/wp-content/uploads/2024/09/aguila-harpia-sidnei-dantas-inaturalist-3.jpeg" alt="Infinito" />
+      </div>
+      <div className="login-form">
+        <h2>Iniciar Sesión</h2>
+        <input
+          type="text"
+          placeholder="Usuario"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <p className="error">{error}</p>}
+        <button onClick={handleLogin} disabled={loading}>
+          {loading ? "Cargando..." : "Ingresar"}
+        </button>
+      </div>
     </div>
   );
 }
