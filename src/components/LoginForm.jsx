@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import infinito from "../assets/infinito.png"; // Asegúrate de tener la imagen en esta ruta
+import Swal from "sweetalert2";
 
 function LoginForm({ setIsAuthenticated }) {
   const [user, setUser] = useState("");
@@ -18,7 +18,18 @@ function LoginForm({ setIsAuthenticated }) {
     setTimeout(() => {
       if (user === "admin" && password === "1234") {
         setIsAuthenticated(true);
+        Swal.fire({
+                title: "Bienvenido",
+                text: "Has iniciado sesión correctamente.",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+              });
       } else {
+        Swal.fire({
+                title: "Credenciales incorrectas",
+                icon: "error",
+                confirmButtonColor: "#d33",
+              });
         setError("Credenciales incorrectas.");
       }
       setLoading(false);
