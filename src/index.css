@@ -9,7 +9,7 @@ body {
 }
 
 .login-wrapper {
-  width: 50%;
+  width: 70%;
   /* max-width: 700px; */
   display: flex;
   flex-direction: row; /* Cambiado de columna a fila */
@@ -17,6 +17,7 @@ body {
   border-radius: 12px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  margin: auto;
 }
 
 .login-image {
@@ -66,4 +67,11 @@ button {
 .error {
   color: red;
   font-size: 14px;
+}
+
+.dashboard-container{
+  max-height: 100vh; /* Corrección: vh en lugar de hv */
+  overflow-y: auto; /* Agrega scroll solo si es necesario */
+  padding: 20px; /* Evita que el contenido se pegue a los bordes */
+  box-sizing: border-box; /* Asegura que padding no afecte el tamaño total */
 }
