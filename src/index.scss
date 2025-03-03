@@ -1,3 +1,7 @@
+$primary-color: purple;
+$secondary-color: black;
+$button-radius: 5px;
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, black, purple, gray);
+  background: linear-gradient(135deg, $secondary-color, purple, gray);
 }
 
 .login-wrapper {
@@ -57,11 +61,16 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background: purple;
+  background: $primary-color;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: $button-radius;
   cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: lighten($primary-color, 20%);
+  }
 }
 
 .error {
